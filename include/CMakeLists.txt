@@ -1,0 +1,6 @@
+INSTALL(
+  DIRECTORY   branut
+  DESTINATION include
+  COMPONENT   library
+  FILES_MATCHING PATTERN "*.hpp"
+)
