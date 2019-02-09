@@ -1,7 +1,9 @@
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
 list(APPEND branut_TESTS
-    basic_variable)
+    basic_variable
+    basic_term
+    term_equation)
 
 FOREACH(TARGET_NAME IN ITEMS ${branut_TESTS})
     add_executable(test_${TARGET_NAME} test_${TARGET_NAME}.cpp)
