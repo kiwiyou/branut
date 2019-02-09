@@ -1,6 +1,8 @@
 #include <branut/Term.hpp>
 
 #include <cmath>
+#include <limits>
+#include <stdexcept>
 
 // Initializer
 
@@ -99,7 +101,21 @@ bool Term::operator!=(Term::this_cref other) const noexcept
 
 void Term::operator=(Variable::value_cref value) const noexcept
 {
-    m_variable = std::pow(value / coefficient(), -order());
+    Term derivative(coefficient() * order(), m_variable, order() - 1);
+    constexpr auto epsilon = 2e-14;
+    Variable::value_t previous;
+    if (derivative.value() == 0)
+    {
+        m_variable = std::pow(value / coefficient(), 1.0 / order());
+    }
+    else
+    {
+        do
+        {
+            previous = m_variable;
+            m_variable -= (this->value() - value) / derivative.value();
+        } while (std::abs(previous - m_variable) >= epsilon);
+    }
 }
 
 // Other
