@@ -6,6 +6,7 @@ include_directories(
 )
 
 add_subdirectory(include)
+add_subdirectory(src)
 
 include(CTest)
 enable_testing()

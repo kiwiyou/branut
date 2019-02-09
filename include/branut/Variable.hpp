@@ -3,15 +3,14 @@
 
 #include <string>
 
-template <class ActualType>
 class Variable
 {
 public:
-    using value_t = ActualType;
+    using value_t = double;
     using value_ref = value_t&;
     using value_cref = const value_t&;
 
-    using this_t = Variable<ActualType>;
+    using this_t = Variable;
     using this_ref = this_t&;
     using this_cref = const this_t&;
 
@@ -40,7 +39,5 @@ public:
 private:
     value_t m_value;
 };
-
-#include "Variable.inl"
 
 #endif

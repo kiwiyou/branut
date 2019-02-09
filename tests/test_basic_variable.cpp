@@ -3,7 +3,7 @@
 
 int main()
 {
-    Variable<double> double_var{.1};
+    Variable double_var{.1};
     ASSERT(double_var.value() == .1)
     double_var = 1.0;
     ASSERT(double_var.value() == 1.0)
