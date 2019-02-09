@@ -1,8 +1,6 @@
 #ifndef _BRANUT_VARIABLE_HPP_
 #define _BRANUT_VARIABLE_HPP_
 
-#include <string>
-
 class Variable
 {
 public:
